@@ -1,6 +1,91 @@
 @use 'global';
 @use 'util' as u;
 
+.wrapper {
+    max-width: u.rem(930);
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--white);
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 4px 25px;
+    border-radius: 35px;
+
+    .signup-box {
+        padding-inline: 40px 65px;
+        h1 { 
+            line-height: 1;
+            font-weight: 700;
+            font-size: clamp(2.375rem, 1.9788732394366197rem + 1.6901408450704223vw, 3.5rem);
+            color: var(--d-blue); 
+        }
+        p { margin: 25px 0;}
+        ul {
+            list-style: none;
+            li {
+                position: relative;
+                margin-left: 38px;
+                margin-bottom: 10px;
+
+                &:last-child { margin-bottom: 0; }
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: -38px;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 10px;
+                    background-color: var(--red);
+                    background-image: url(../assets/images/icon-list.svg);
+                    background-position: center;
+                    background-repeat: no-repeat;
+                }
+            }
+        }
+        .signup-form {
+            margin-top: 40px;
+            label { 
+                margin-bottom: 8px;
+                display: block; 
+                font-size: 0.75rem;
+                font-weight: 700;
+            }
+            input[type = email], button { 
+               width: 100%;
+               outline: 0;
+               border: 0;
+               border-radius: 8px;
+            }
+            input[type = email] { 
+                padding: 18px 18px 18px 25px;
+                margin-bottom: 25px;
+                font-size: 0.938rem;
+                color: var(--ll-grey);
+                border: 1px solid var(--ll-grey);
+
+                &:focus {
+                    color: var(--d-blue);
+                }
+            }
+            button { 
+                padding: 20px;
+                font-size: 0.938rem;
+                font-weight: 700;
+                cursor: pointer;
+                color: var(--white);
+                background-color: var(--d-blue);
+            }
+        }
+    }
+    .signup-img {
+
+    }
+}
+
+#result-msg {
+    display: none;
+}
 
 @media screen and (max-width: 375px) {
 }

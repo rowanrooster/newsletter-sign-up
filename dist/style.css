@@ -1,12 +1,29 @@
+:root {
+  --red: hsl(4, 100%, 67%);
+  --d-blue: hsl(234, 29%, 20%);
+  --d-grey: hsl(235, 18%, 26%);
+  --l-grey: hsl(231, 7%, 60%);
+  --ll-grey: hsl(0, 0%, 77%);
+  --white: hsl(0, 0%, 100%);
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
+  font-family: "Roboto", sans-serif;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.4;
   font-weight: 400;
+  color: var(--d-blue);
+  background-color: var(--d-grey);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 h1, h2, h3, p {
@@ -24,4 +41,87 @@ ul {
 
 img {
   display: block;
+}
+
+.wrapper {
+  max-width: 58.125rem;
+  padding: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--white);
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 4px 25px;
+  border-radius: 35px;
+}
+.wrapper .signup-box {
+  padding-inline: 40px 65px;
+}
+.wrapper .signup-box h1 {
+  line-height: 1;
+  font-weight: 700;
+  font-size: clamp(2.375rem, 1.9788732394rem + 1.6901408451vw, 3.5rem);
+  color: var(--d-blue);
+}
+.wrapper .signup-box p {
+  margin: 25px 0;
+}
+.wrapper .signup-box ul {
+  list-style: none;
+}
+.wrapper .signup-box ul li {
+  position: relative;
+  margin-left: 38px;
+  margin-bottom: 10px;
+}
+.wrapper .signup-box ul li:last-child {
+  margin-bottom: 0;
+}
+.wrapper .signup-box ul li::before {
+  content: "";
+  position: absolute;
+  left: -38px;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: var(--red);
+  background-image: url(../assets/images/icon-list.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.wrapper .signup-box .signup-form {
+  margin-top: 40px;
+}
+.wrapper .signup-box .signup-form label {
+  margin-bottom: 8px;
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.wrapper .signup-box .signup-form input[type=email], .wrapper .signup-box .signup-form button {
+  width: 100%;
+  outline: 0;
+  border: 0;
+  border-radius: 8px;
+}
+.wrapper .signup-box .signup-form input[type=email] {
+  padding: 18px 18px 18px 25px;
+  margin-bottom: 25px;
+  font-size: 0.938rem;
+  color: var(--ll-grey);
+  border: 1px solid var(--ll-grey);
+}
+.wrapper .signup-box .signup-form input[type=email]:focus {
+  color: var(--d-blue);
+}
+.wrapper .signup-box .signup-form button {
+  padding: 20px;
+  font-size: 0.938rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--white);
+  background-color: var(--d-blue);
+}
+#result-msg {
+  display: none;
 }/*# sourceMappingURL=style.css.map */
