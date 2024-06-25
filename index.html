@@ -14,7 +14,7 @@
 <body>
 
   <!-- Sign-up form -->
-  <main class="wrapper">
+  <main id="signup-container" class="wrapper">
     <div class="signup-box">
       <h1>Stay updated!</h1>
       <p>Join 60,000+ product managers receiving monthly updates on:</p>
@@ -23,15 +23,18 @@
         <li>Measuring to ensure updates are a success</li>
         <li>And much more!</li>
       </ul>
-      <form id="signup-form" class="signup-form" name="signup-form" action="">
-        <label for="email">Email address</label>
-        <input name="email" type="email" placeholder="email@company.com">
-        <button type="submit">Subscribe to monthly newsletter</button>
+      <form id="signup-form" class="signup-form" name="signup-form" action="" novalidate>
+        <div class="form-head">
+          <label for="email">Email address</label>
+          <span id="error-msg" class="error-msg">Valid email required</span>
+        </div>  
+        <input id="form-inp" class="" name="email" type="email" placeholder="email@company.com" minlength="8" required>
+        <button id="form-btn" name="submit" type="submit">Subscribe to monthly newsletter</button>
       </form>
     </div>
     <div class="signup-img">
       <picture>
-        <source media="(min-width: 56.25rem)" srcset="assets/images/illustration-sign-up-desktop.svg"/>
+        <source media="(min-width: 59.375rem)" srcset="assets/images/illustration-sign-up-desktop.svg"/>
         <img src="assets/images/illustration-sign-up-mobile.svg" alt="">
       </picture>
     </div>
@@ -39,10 +42,11 @@
 
   <!-- Success message  -->
   <div id="result-msg" class="result-msg">
+    <img src="assets/images/icon-success.svg" alt="">
     <h2>Thanks for subscribing!</h2>
-    <p>A confirmation email has been sent to ash@loremcompany.com.
+    <p>A confirmation email has been sent to <strong>ash@loremcompany.com</strong>.
       Please open it and click the button inside to confirm your subscription.</p>
-    <a href="#!">Dismiss message</a>
+    <a id="dismiss-btn" class="theme-btn" href="#!">Dismiss message</a>
   </div>
 
 </body>

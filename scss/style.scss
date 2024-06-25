@@ -1,6 +1,39 @@
 @use 'global';
 @use 'util' as u;
 
+
+h1, h2 { 
+    line-height: 1;
+    font-weight: 700;
+    font-size: clamp(2.375rem, 1.9788732394366197rem + 1.6901408450704223vw, 3.5rem);
+    color: var(--d-blue); 
+}
+
+button, .theme-btn {  
+    text-align: center;               
+    width: 100%;
+    outline: 0;
+    border: 0;
+    border-radius: 8px;
+    padding: 20px;
+    font-size: 0.938rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--white);
+    background: linear-gradient(to right, var(--d-blue), var(--d-blue));
+    
+    &:hover {
+        background: linear-gradient(to right, var(--pink), var(--red));
+        box-shadow: rgba(255, 98, 87, 0.5) 0px 4px 10px, rgba(149, 157, 165, 0.2) 0px 8px 20px;
+    }
+    &:disabled {
+        background: var(--l-grey) ;
+        cursor: not-allowed; 
+
+        &:hover {box-shadow: none;}
+    }
+}
+
 .wrapper {
     max-width: u.rem(930);
     padding: 25px;
@@ -14,12 +47,6 @@
 
     .signup-box {
         padding-inline: 40px 65px;
-        h1 { 
-            line-height: 1;
-            font-weight: 700;
-            font-size: clamp(2.375rem, 1.9788732394366197rem + 1.6901408450704223vw, 3.5rem);
-            color: var(--d-blue); 
-        }
         p { margin: 25px 0;}
         ul {
             list-style: none;
@@ -45,19 +72,21 @@
         }
         .signup-form {
             margin-top: 40px;
-            label { 
+
+            .form-head {                
                 margin-bottom: 8px;
-                display: block; 
                 font-size: 0.75rem;
                 font-weight: 700;
-            }
-            input[type = email], button { 
-               width: 100%;
-               outline: 0;
-               border: 0;
-               border-radius: 8px;
+                display: flex; 
+                justify-content: space-between;
+
+                span { color: var(--red);}
             }
             input[type = email] { 
+                width: 100%;
+                outline: 0;
+                border: 0;
+                border-radius: 8px;
                 padding: 18px 18px 18px 25px;
                 margin-bottom: 25px;
                 font-size: 0.938rem;
@@ -66,26 +95,82 @@
 
                 &:focus {
                     color: var(--d-blue);
+                    border: 1px solid var(--d-blue);
                 }
+                &:disabled { cursor: not-allowed; }
             }
-            button { 
-                padding: 20px;
-                font-size: 0.938rem;
-                font-weight: 700;
-                cursor: pointer;
-                color: var(--white);
-                background-color: var(--d-blue);
+            .error#form-inp {
+                color: var(--red);
+                border: 1px solid var(--red);
+                background-color: var(--l-red);
             }
         }
     }
-    .signup-img {
+}
 
-    }
+#error-msg {
+    display: none;
 }
 
 #result-msg {
     display: none;
+    flex-direction: column;
+    max-width: u.rem(500);
+    padding: u.rem(50);
+    background-color: var(--white);
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 4px 25px;
+    border-radius: 35px;
+    img {
+        width: 60px;
+        margin-bottom: u.rem(50);
+    }
+    p { margin: 25px 0 40px; }
+    a { margin-bottom: 20px;}
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 950px) {
+    .wrapper {
+        max-width: u.rem(375);
+        padding: 0;
+        flex-direction: column-reverse;
+        border-radius: 5px;
+        
+        .signup-box {
+            padding-inline: 22px;
+            padding-bottom: 22px;
+            h1 { margin-top: 40px;}
+        }
+        .signup-img img {
+            border-radius: 5px 5px 0 0;
+        }
+    }
+}
+
+@media screen and (max-width: 560px) {
+    #result-msg {
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    body {
+        justify-content:flex-start;
+        background-color: var(--white);
+    }
+    .wrapper {
+        max-width: 100%;
+        min-width: u.rem(320);
+        box-shadow: none;
+        border-radius: 0;
+        
+        .signup-img img {
+            width: 100%;
+            border-radius: 0;
+        }
+    }
+    #result-msg {
+        max-width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+    }
 }
